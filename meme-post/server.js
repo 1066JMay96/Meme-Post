@@ -1,25 +1,32 @@
 
-const express = require("express");
+// Requiring necessary npm packages
+var express = require("express");
 
-const mongoose = require("mongoose");
-const routes = require("./routes");
-const app = express();
-const PORT = process.env.PORT || 3001;
+// Setting up port and requiring models for syncing
 
-// Define middleware here
+var PORT = process.env.PORT || 3000;
+var db = require("./models");
+
+// Creating express app and configuring middleware needed for authentication
+var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-// Add routes, both API and view
-app.use(routes);
+app.use(express.static("public"));
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactcms");
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
-// Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+// Requiring our routes
+require("./routes/html-routes.js")(app);
+require("./routes/user-api-routes.js")(app);
+require("./routes/create-meme-routes")(app);
+require("./routes/meme-like-routes.js")(app);
+
+// Syncing our database and logging a message to the user upon success
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+  });
 });
