@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-function Homepage() {
- return(
-   <p> It Works</p>
- )
-);
+import {Col, Row, Container } from "../components/Grid";
 
-export default Homepage;
+
+const Home = () => {
+    return (
+        <h1>Hello World</h1>
+    );
+}
