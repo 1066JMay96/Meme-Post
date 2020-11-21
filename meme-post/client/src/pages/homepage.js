@@ -1,11 +1,9 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-var Homepage = React.createClass({
-  render: function() {
-    return (
-  <Navbar></Navbar>
-    );
-  }
-});
+function Homepage() {
+ return(
+   <p> It Works</p>
+ )
+);
 
 export default Homepage;
