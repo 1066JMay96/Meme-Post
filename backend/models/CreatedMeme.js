@@ -11,10 +11,10 @@ const createdMemeSchema = mongoose.Schema({
         required: true
     },
     topText: {
-        type: Text
+        type: String
     },
     bottomText: {
-        type: Text
+        type: String
     }
 });
 

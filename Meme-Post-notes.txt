@@ -1,0 +1,12 @@
+
+1.verify password option
+2.add to main repo
+3.style
+
+4.style other pages
+5.userprofile
+6.api/botnet
+
+7.host on web
+8.monetize through ads & cryptos
+9.noscript option/web assembly,C++
