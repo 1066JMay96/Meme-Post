@@ -1,17 +1,18 @@
 
 // Requiring necessary npm packages
-const compression = require("compression");
 const express = require("express");
 const routes = require("./routes");
-
+const bodyParser = require('body-parser');
 const app = express();
-
+const mongoose = require('mongoose');
+const accounts = require("./routes/accounts.js");
 // Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 var db = require("./models");
+require("dotenv").config();
+app.use(bodyParser.json());
 
-app.use(compression({ filter: shouldCompress }))
- 
+ app.use(cors());
 function shouldCompress (req, res) {
   if (req.headers['x-no-compression']) {
     // don't compress responses with this request header
@@ -35,8 +36,19 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Syncing our database and logging a message to the user upon success
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-  });
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING, {
+  useNewUrlParser: true, 
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+}, (err) => {
+  if (err) throw err;
+  console.log("MongoDB connection established");
+}) ;
+const connection = mongoose.connection;
+
+connection.once('open', function() {
+  console.log("MongoDB database connect established sucessfully");
+})
+app.listen(PORT, function() {
+  console.log("Server is running on  " + PORT);
 });
