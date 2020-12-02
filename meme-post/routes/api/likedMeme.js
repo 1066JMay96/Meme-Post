@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const likedMemesController = require();
+const likedMemesController = require("../../controllers/likeMemeController");
 
 // mathces with "/api/creates"
-router.route("/create")
+router.route("/liked")
     .post(likedMemesController.create);
