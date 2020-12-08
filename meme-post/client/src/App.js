@@ -2,7 +2,7 @@ import React from "react";
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import Homepage from './pages/HomePage';
+import Home from './pages/HomePage';
 import AccountForm from './pages/AccountForm';
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Navbar/>
         <Switch>
           <Route exact path ={['/',"/homepage"]}>
-            <Homepage/>
+            <Home/>
           </Route>
           <Route exact path ={['/AccountForm']}>
             <AccountForm/>
