@@ -23,7 +23,7 @@ const Login =() => {
               <button type="submit" className="btn btn-info white">Login</button>
             </form>
             <p>
-              Or Signup
+              Or Sign Up
               <Link className="nav-link" to='/signup'>here</Link>
             </p>
           </Col>
