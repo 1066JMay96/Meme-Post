@@ -3,6 +3,7 @@
 const compression = require("compression");
 const express = require("express");
 const routes = require("./routes");
+const mongoose = require("mongoose");
 
 const app = express();
 
@@ -28,6 +29,16 @@ app.use(routes);
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
+
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://localhost/meme-post',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
+);
 
 // Creating express app and configuring middleware needed for authentication
 app.use(express.urlencoded({ extended: true }));
