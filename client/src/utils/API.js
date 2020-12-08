@@ -2,36 +2,28 @@ import axios from "axios";
 
 export default {
 
-    //retreive images for memes from api
-    getMemePictures: function() {
-        return axios.get("https://api.imgflip.com/get_memes");
-    },
     // Get all Memes
     getMemes: function() {
-        return axios.get("/api/create");
+        return axios.get("/api/createdMeme");
     },
     //get one meme
     getMeme: function(id) {
-        return axios.get("/api/create/" + id);
+        return axios.get("/api/createdMeme/" + id);
     },
     //delete meme
     deleteMeme: function(id) {
-        return axios.delete("/api/create/" + id);
+        return axios.delete("/api/createdMeme/" + id);
     },
     //create a meme
     createMeme: function(memeData) {
-        return axios.post("/api/create", memeData);
+        return axios.post("/api/createdMeme", memeData);
     },
     //post liked meme
     likeMeme: function(memeData) {
-        return axios.post("/api/liked", memeData);
+        return axios.post("/api/likedMeme", memeData);
     },
     //unlike a meme
     unlikeMeme: function(memeId) {
-        return axios.delete("/api/liked/" + memeId);
+        return axios.delete("/api/likedMeme/" + memeId);
     },
-    //user signs up
-    signup: function(userData) {
-        return axios.post("/api/account", userData);
-    }
 };
