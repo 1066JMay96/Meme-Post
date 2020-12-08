@@ -30,8 +30,4 @@ export default {
     unlikeMeme: function(memeId) {
         return axios.delete("/api/liked/" + memeId);
     },
-    //user signs up
-    signup: function(userData) {
-        return axios.post("/api/account", userData);
-    }
 };

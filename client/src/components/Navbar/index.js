@@ -2,7 +2,7 @@ import React from "react";
 
 export function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <a className="navbar-brand" href="/homepage">Meme-Post</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
@@ -19,14 +19,16 @@ export function NavBar() {
                     <a className="nav-link" href="/liked">Liked</a>
                 </li>
                 <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a className="nav-link dropdown-toggle" href="/profile" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Account
                     </a>
                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a className="dropdown-item" href="/signup">Sign-Up</a>
                         <a className="dropdown-item" href="/login">Login</a>
-
                     </div>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/profile">Profile</a>
+                    </li>
                 </li>
             </ul>
         </div>
