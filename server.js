@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 // Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 3010;
+const PORT = process.env.PORT || 3001;
 
 app.use(compression({ filter: shouldCompress }))
  
@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/meme-post', 
+  process.env.MONGODB_URI || 'mongodb+srv://MuhammedEkinci:*Tbn58kpm@cluster0.e9fkz.mongodb.net/memepost_db?retryWrites=true&w=majority', 
   {
       useNewUrlParser: true,
       useUnifiedTopology: true,
