@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const createdMemeSchema = mongoose.Schema({
+const createdMemeSchema = new Schema({
     title: {
         type: String,
         required: true,
@@ -10,13 +11,12 @@ const createdMemeSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    topText: {
-        type: String
-    },
-    bottomText: {
-        type: String
+    user: {
+        type:String,
+        required: true
     }
 });
+
 
 const CreatedMeme = mongoose.model("CreatedMeme", createdMemeSchema);
 

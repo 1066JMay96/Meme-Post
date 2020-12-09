@@ -16,9 +16,9 @@ import LikedMemePage from "./pages/LikedMemePage";
 function App() {
   return (
       <div>
-        <Navbar />
         <Router>
           <AuthProvider>
+          <Navbar />
               <Switch>
                 <Route path="/signup" component={Signup} />
                 <PrivateRoute exact path ="/profile" component={Profile} />

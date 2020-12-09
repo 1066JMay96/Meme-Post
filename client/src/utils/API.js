@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export default {
-
     // Get all Memes
     getMemes: function() {
         return axios.get("/api/createdMeme");
@@ -16,6 +15,7 @@ export default {
     },
     //create a meme
     createMeme: function(memeData) {
+        console.log(memeData)
         return axios.post("/api/createdMeme", memeData);
     },
     //post liked meme

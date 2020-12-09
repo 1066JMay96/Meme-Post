@@ -3,7 +3,7 @@ const createdMemeRoutes = require("./createdMeme");
 const likedMemeRoutes = require("./likedMeme");
 
 //created meme route
-router.use("/createdMeme", createdMemeRoutes);
+router.use("/create", createdMemeRoutes);
 
 //liked meme routes
 router.use("/likedMeme", likedMemeRoutes);

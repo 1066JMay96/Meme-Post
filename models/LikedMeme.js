@@ -11,11 +11,9 @@ const likedMemeSchema = new Schema({
         type: String,
         required: true
     },
-    topText: {
-        type: String
-    },
-    bottomText: {
-        type: String
+    user: {
+        type:String,
+        required: true
     }
 });
 
