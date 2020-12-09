@@ -36,7 +36,7 @@ CreatedMeme.collection
 
 // Seed Cart from models/cart.js
 LikedMeme.collection
-  .insertOne({})
+  .insertMany(memes)
   .then((MemePost) => {
     console.log(MemePost);
   })
