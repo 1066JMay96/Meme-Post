@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb+srv://MuhammedEkinci:*Tbn58kpm@cluster0.e9fkz.mongodb.net/memepost_db?retryWrites=true&w=majority', 
+  process.env.MONGODB_URI || 'mongodb://localhost/meme-post', 
   {
       useNewUrlParser: true,
       useUnifiedTopology: true,
