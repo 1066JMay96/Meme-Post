@@ -13,10 +13,13 @@ export default {
     deleteMeme: function(id) {
         return axios.delete("/api/createdMeme/" + id);
     },
-    //create a meme
+    //saves a meme to database
     createMeme: function(memeData) {
-        console.log(memeData)
-        return axios.post("/api/createdMeme", memeData);
+        return axios({
+            method: "post",
+            url: "/api/createdMeme",
+            data: memeData
+        })
     },
     //post liked meme
     likeMeme: function(memeData) {

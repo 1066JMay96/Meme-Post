@@ -2,8 +2,10 @@
 // Requiring necessary npm packages
 const compression = require("compression");
 const express = require("express");
-const routes = require("./routes");
 const mongoose = require("mongoose");
+const {resolve} = require("path");
+const CreatedMeme = require("./models/CreatedMeme.js");
+const LikedMeme = require("./models/LikedMeme.js");
 
 const app = express();
 
@@ -22,7 +24,6 @@ function shouldCompress (req, res) {
   return compression.filter(req, res)
 }
 
-app.use(routes);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -30,7 +31,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/meme-post', 
+  process.env.MONGODB_URI || 'mongodb+srv://MuhammedEkinci:*Tbn58kpm@cluster0.e9fkz.mongodb.net/memepost_db?retryWrites=true&w=majority', 
   {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -49,4 +50,17 @@ if (process.env.NODE_ENV === "production") {
 // Start the API server
 app.listen(PORT, function() {
   console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+});
+
+//Get memes from Database to homepage
+app.get("/api/createdMeme", (req, res) => {
+  console.log("route hit!!");
+  CreatedMeme.find({} , (error, data) => {
+    console.log(data)
+    if(error) {
+      res.send(error)
+    } else {
+      res.json(data)
+    }
+  });
 });

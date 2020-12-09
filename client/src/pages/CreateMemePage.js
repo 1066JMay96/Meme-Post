@@ -67,7 +67,7 @@ export default function CreateMemePage() {
             let memes = {
                 title: title,
                 meme: data.data.url,
-                user: userEmail.user
+                "user": userEmail.user
             }
             console.log(memes);
            API.createMeme(memes)
