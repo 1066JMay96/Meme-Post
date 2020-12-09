@@ -64,3 +64,56 @@ app.get("/api/createdMeme", (req, res) => {
     }
   });
 });
+
+//post memes into Database
+app.post("/api/createdMeme", (req, res) => {
+  console.log("You just saved a meme!!!");
+  CreatedMeme.create(req.body).then((error, data) => {
+    console.log("save meme SUCCESS!!!!" + data);
+    if(error) {
+      res.send(error)
+    } else {
+      console.log(data)
+      res.json(data);
+    }
+  });
+});
+
+//Get memes from Database to likedpage
+app.get("/api/createdMeme", (req, res) => {
+  console.log("route hit!!");
+  LikedMeme.find({} , (error, data) => {
+    console.log(data)
+    if(error) {
+      res.send(error)
+    } else {
+      res.json(data)
+    }
+  });
+});
+
+//post memes into LikedMeme Database
+app.post("/api/createdMeme", (req, res) => {
+  console.log("You just saved a meme!!!");
+  LikedMeme.create(req.body).then((error, data) => {
+    console.log("save meme SUCCESS!!!!" + data);
+    if(error) {
+      res.send(error)
+    } else {
+      console.log(data)
+      res.json(data);
+    }
+  });
+});
+
+//delete liked meme from LikedMeme database
+app.delete("/api/likedMeme/:id", (req, res) => {
+  LikedMeme.deleteOne({_id: req.params.id}, (err, data) => {
+    if(err) {
+      res.send(err);
+    } else {
+      console.log(data)
+      res.json(data);
+    }
+  });
+});

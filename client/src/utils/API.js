@@ -15,6 +15,7 @@ export default {
     },
     //saves a meme to database
     createMeme: function(memeData) {
+        console.log(memeData)
         return axios({
             method: "post",
             url: "/api/createdMeme",
