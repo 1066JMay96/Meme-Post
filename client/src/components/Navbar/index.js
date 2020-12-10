@@ -21,7 +21,7 @@ export function NavBar() {
             </ul>
             <ul className="navbar-nav justify-content-center mr-auto">
                 <a className="navbar-brand" href="/homepage">Meme-Post
-                    <img src="pictures/Trollface.png" alt="troll-face" className="d-inline-block mr-1" style={{width: "50px"}}></img>
+                    <img src="pictures/Trollface.png" alt="troll-face" className="d-inline-block ml-1" style={{width: "50px"}}></img>
                 </a>
             </ul>
             <ul className="navbar-nav justify-content-end">
