@@ -21,8 +21,12 @@ export default function HomePage() {
 
     const handleMemeSave = (memeId) => {
 
-        // find the book in meme state by the mathcing id
+        console.log(memeId)
+
+        // find the book in memes state by the mathcing id
         const memeToSave = memes.find((data) => data.memeId === memeId);
+
+        //it returns undefined
         console.log(memeToSave);
     }
 
