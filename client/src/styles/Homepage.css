@@ -1,5 +1,5 @@
 .meme-post-content {
-    width: 100%;
+    width: 100px;
     padding: 20px 14px 14px 14px !important;
     background-color: white;
     position: relative;
@@ -21,13 +21,24 @@
     font-size: 15px;
 }
 
-.meme-pic {
+.meme-picture {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 400px;
+    margin: 0;
 }
 
 .save-btn {
     float: right;
+}
+
+.meme {
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.meme-card-body {
+    padding: 0 !important;
+}
+
+.meme-title {
+    margin: 5px 5px 0 5px;
 }

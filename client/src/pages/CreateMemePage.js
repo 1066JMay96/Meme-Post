@@ -68,16 +68,15 @@ export default function CreateMemePage() {
            API.createMeme(memes)
             .then(() => console.log("meme made"))
             .catch((err) => console.log(err))
-        }
-
+        } 
     }
 
     return (
-        <div>
-            <h1>Create a Meme</h1>
+        <div className="create-meme-container">
+            <h1 className="create-meme-title">Create a Meme</h1>
             <Container fluid className="meme-display-container">
                 {template && (
-                    <>
+                    <div className="chosen-meme-display-area" style={{width: "300px"}}>
                         <Meme template={template}/>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group id="title">
@@ -94,7 +93,7 @@ export default function CreateMemePage() {
                             </Form.Group>
                             <Button className="btn btn-primary" type="submit">Create Meme</Button>
                         </Form>
-                  </>
+                  </div>
                 )}
                 {!template && templates.map((template) => {
                     return (

@@ -24,39 +24,45 @@ export default function HomePage() {
         console.log(memeId)
 
         // find the book in memes state by the mathcing id
-        const memeToSave = memes.find((data) => data.memeId === memeId);
+        const memeToSave = memes.find(data => data._id === memeId);
 
         //it returns undefined
         console.log(memeToSave);
+        API.likeMeme(memeToSave)
+        .then(() => console.log("meme saved!!"))
+        .catch((err) => console.log(err));
     }
 
     return (
-        <Container fluid className="d-flex justify-content-center mt-5" >
+        <Container fluid className="d-flex meme justify-content-center">
             <Row>
-                {memes.map((memeToShow) => {
-                    return (
-                        <Col lg={12} sm={8}>
-                            <Card key={memeToShow._id} className="mr-10" style={{width: "100%", maxWidth: "500px"}}>
-                                <Card.Title>{memeToShow.title}</Card.Title>
-                                <Card.Body>
-                                    <Image src={memeToShow.meme} alt="meme-pic" fluid/>
-                                </Card.Body>
-                                <Row>
-                                    <Col size={12}>
-                                        <h4 className="meme-artist">Made By: <span className="meme-artist-name">{memeToShow.user}</span></h4>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col size={12} >
-                                        <Button variant="success" className="like-btn ml-3 mb-3" style={{width: "50px" }}><i className="far fa-thumbs-up"></i></Button>
-                                        <Button variant="danger" className="like-btn ml-3 mb-3" style={{width: "50px" }}><i className="far fa-thumbs-down"></i></Button>
-                                        <Button variant="btn btn-outline save-btn" onClick={() => handleMemeSave(memeToShow._id)}><i className="far fa-bookmark"></i></Button>
-                                    </Col>
-                                </Row>
-                            </Card>
-                        </Col>
-                    );
-                })}
+                <Col lg={8} sm={12}>
+                    {memes.map((memeToShow) => {
+                        return (
+                            <>
+                                <Card key={memeToShow._id} className="meme-card">
+                                    <Card.Title className="meme-title">{memeToShow.title}</Card.Title>
+                                    <Card.Body className="meme-card-body">
+                                        <Image src={memeToShow.meme} alt="meme-pic" className="meme-picture w-100"fluid/>
+                                    </Card.Body>
+                                    <Row>
+                                        <Col size={12}>
+                                            <h4 className="meme-artist">Made By: <span className="meme-artist-name">{memeToShow.user}</span></h4>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col size={12} >
+                                            <Button variant="success" className="like-btn ml-3 mb-3" style={{width: "50px" }}><i className="far fa-thumbs-up"></i></Button>
+                                            <Button variant="danger" className="like-btn ml-3 mb-3" style={{width: "50px" }}><i className="far fa-thumbs-down"></i></Button>
+                                            <Button variant="btn btn-outline save-btn" onClick={() => handleMemeSave(memeToShow._id)}><i className="far fa-bookmark"></i></Button>
+                                        </Col>
+                                    </Row>
+                                </Card>
+                                <br></br>
+                            </>
+                        );
+                    })}
+                </Col>
             </Row>
         </Container>
     );

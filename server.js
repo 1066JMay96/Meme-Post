@@ -80,7 +80,7 @@ app.post("/api/createdMeme", (req, res) => {
 });
 
 //Get memes from Database to likedpage
-app.get("/api/createdMeme", (req, res) => {
+app.get("/api/likedMeme", (req, res) => {
   console.log("route hit!!");
   LikedMeme.find({} , (error, data) => {
     console.log(data)
@@ -93,7 +93,7 @@ app.get("/api/createdMeme", (req, res) => {
 });
 
 //post memes into LikedMeme Database
-app.post("/api/createdMeme", (req, res) => {
+app.post("/api/likedMeme", (req, res) => {
   console.log("You just saved a meme!!!");
   LikedMeme.create(req.body).then((error, data) => {
     console.log("save meme SUCCESS!!!!" + data);

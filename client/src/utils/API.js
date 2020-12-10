@@ -28,6 +28,11 @@ export default {
     },
     //unlike a meme
     unlikeMeme: function(memeId) {
-        return axios.delete("/api/likedMeme/" + memeId);
+        console.log(memeId)
+        return axios.delete(`/api/likedMeme/${memeId}`);
     },
+    //get Liked Memes from api
+    getLikedMeme: function() {
+        return axios.get("/api/likedMeme");
+    }
 };

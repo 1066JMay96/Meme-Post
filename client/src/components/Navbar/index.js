@@ -16,7 +16,7 @@ export function NavBar() {
                     <a className="nav-link" href="/create">Create</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/liked">Liked</a>
+                    <a className="nav-link" href="/liked">Saved</a>
                 </li>
                 <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="/profile" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
