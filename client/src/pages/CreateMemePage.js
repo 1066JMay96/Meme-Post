@@ -29,11 +29,6 @@ export default function CreateMemePage() {
         );
     }, []);
 
-    function loadMemes() {
-        API.getMeme()
-            .then(res => console.log(res))
-    }
-
     async function handleSubmit(event) {
         event.preventDefault();
         console.log("pressed");
@@ -72,7 +67,6 @@ export default function CreateMemePage() {
             console.log(memes);
            API.createMeme(memes)
             .then(() => console.log("meme made"))
-            .then(() => loadMemes())
             .catch((err) => console.log(err))
         }
 

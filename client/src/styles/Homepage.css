@@ -1,0 +1,33 @@
+.meme-post-content {
+    width: 100%;
+    padding: 20px 14px 14px 14px !important;
+    background-color: white;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.meme-card-top {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.meme-artist {
+    float: right;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.meme-artist-name {
+    font-size: 15px;
+}
+
+.meme-pic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
+
+.save-btn {
+    float: right;
+}
