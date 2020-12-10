@@ -2,9 +2,11 @@ import React from "react";
 import "../../styles/Navbar.css"
 
 export function NavBar() {
+
+
   return (
     <nav className="navbar navbar-expand-lg sticky-top navbar-dark meme-navbar">
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse navbar-right" id="navbarSupportedContent">
@@ -18,13 +20,15 @@ export function NavBar() {
                 <li className="nav-item">
                     <a className="nav-link" href="/liked">Saved</a>
                 </li>
+
             </ul>
             <ul className="navbar-nav justify-content-center mr-auto">
-                <a className="navbar-brand" href="/homepage">Meme-Post
-                    <img src="pictures/Trollface.png" alt="troll-face" className="d-inline-block ml-1" style={{width: "50px"}}></img>
-                </a>
+                <a className="navbar-brand" href="/homepage">Meme-Post</a>
+                <img src="pictures/Trollface.png" alt="troll-face" className="d-inline-block" style={{width: "50px"}}></img>
+
             </ul>
             <ul className="navbar-nav justify-content-end">
+
                 <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="/profile" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Account
