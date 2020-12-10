@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react"
 import {Card, Button, Container, Row, Col, Image} from "react-bootstrap";
 import API from "../utils/API";
 import "../styles/Homepage.css";
+import LikeButton from "../components/LikeButton";
+import DislikeButton from "../components/DislikeButton";
 
 
 export default function HomePage() {
@@ -52,8 +54,8 @@ export default function HomePage() {
                                     </Row>
                                     <Row>
                                         <Col size={12} >
-                                            <Button variant="success" className="like-btn ml-3 mb-3" style={{width: "50px" }}><i className="far fa-thumbs-up"></i></Button>
-                                            <Button variant="danger" className="like-btn ml-3 mb-3" style={{width: "50px" }}><i className="far fa-thumbs-down"></i></Button>
+                                            <LikeButton />
+                                            <DislikeButton />
                                             <Button variant="btn btn-outline save-btn" onClick={() => handleMemeSave(memeToShow._id)}><i className="far fa-bookmark"></i></Button>
                                         </Col>
                                     </Row>
