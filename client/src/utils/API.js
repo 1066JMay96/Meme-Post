@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export default {
-
     // Get all Memes
     getMemes: function() {
         return axios.get("/api/createdMeme");
@@ -14,9 +13,14 @@ export default {
     deleteMeme: function(id) {
         return axios.delete("/api/createdMeme/" + id);
     },
-    //create a meme
+    //saves a meme to database
     createMeme: function(memeData) {
-        return axios.post("/api/createdMeme", memeData);
+        console.log(memeData)
+        return axios({
+            method: "post",
+            url: "/api/createdMeme",
+            data: memeData
+        })
     },
     //post liked meme
     likeMeme: function(memeData) {
@@ -24,6 +28,11 @@ export default {
     },
     //unlike a meme
     unlikeMeme: function(memeId) {
-        return axios.delete("/api/likedMeme/" + memeId);
+        console.log(memeId)
+        return axios.delete(`/api/likedMeme/${memeId}`);
     },
+    //get Liked Memes from api
+    getLikedMeme: function() {
+        return axios.get("/api/likedMeme");
+    }
 };

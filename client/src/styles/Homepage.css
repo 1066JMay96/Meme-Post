@@ -1,0 +1,44 @@
+.meme-post-content {
+    width: 100px;
+    padding: 20px 14px 14px 14px !important;
+    background-color: white;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.meme-card-top {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.meme-artist {
+    float: right;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.meme-artist-name {
+    font-size: 15px;
+}
+
+.meme-picture {
+    display: block;
+    margin: 0;
+}
+
+.save-btn {
+    float: right;
+}
+
+.meme {
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.meme-card-body {
+    padding: 0 !important;
+}
+
+.meme-title {
+    margin: 5px 5px 0 5px;
+}
