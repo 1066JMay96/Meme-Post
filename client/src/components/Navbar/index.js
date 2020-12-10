@@ -20,8 +20,8 @@ export function NavBar() {
                 <li className="nav-item">
                     <a className="nav-link" href="/liked">Saved</a>
                 </li>
-                <a className="navbar-brand" href="/homepage">Meme-Post
-            <img src="pictures/Trollface.png" alt="troll-face" className="d-inline-block mr-1" style={{width: "50px"}}></img>
+                <a className="navbar-brand ml-10" href="/homepage">Meme-Post
+            <img src="pictures/Trollface.png" alt="troll-face" onClick="pictures/Pepe.png" className="d-inline-block mr-1" style={{width: "50px"}}></img>
         </a>
                 <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="/profile" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
