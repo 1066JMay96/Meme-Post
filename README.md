@@ -2,35 +2,35 @@
 
 An Application that allows you to create and post your own creative memes to your hearts content. If you find a meme that you cherish no problem you can just save it and if you feel like the meme is dead no problem just unsave it. Easy as that! 
 
-## *Usage*
+## Usage
 
-- ### *Live usage:*
+- ### Live usage:
  -deployed link: [Here](https://warm-plains-99850.herokuapp.com/#/Meme-Post/liked)
 
-- #### *Local Usage:*
+- #### Local Usage:
   - Git clone the repository.
   - From you terminal, run ```npm i``` to install the dependencies required for the application.
   - Run ```npm run seed``` to load the database.
   - Run ``` npm start``` to start the application on the localhost.
 
 ## Authors
-### *Muhammed Ekinci*
+### Muhammed Ekinci
  -[Github](https://github.com/MuhammedEkinci)
  -[Linkedin](https://www.linkedin.com/in/muhammed-ekinci-/)
 
-### *William May*
+### William May
  -[Github](https://github.com/1066JMay96)
  -[Linkedin]()
 
-### *Chad Smith*
+### Chad Smith
  -[Github]()
  -[Linkedin]()
 
 
-### *technologies*
+## technologies
 <img src="client/src/images/mern.png" alt="mern" width="500"/>
 
-## *Screenshots*
+## Screenshots
 <img src="client/src/images/homepage.JPG" alt="homepage-pic" width="500"/>
 <img src="client/src/images/createMemePage.JPG" alt="createMemePage-pic" width="500"/>
 <img src="client/src/images/SavedMemePage.JPG" alt="saved-meme-pic" width="500"/>
@@ -38,6 +38,6 @@ An Application that allows you to create and post your own creative memes to you
 <img src="client/src/images/Login.JPG" alt="login" width="500"/>
 <img src="client/src/images/Profile.JPG" alt="profile" width="500"/>
 
-## *License*
+## License
 
  &copy; 2020 Muhammed Ekinci, William May, Chad Smith
