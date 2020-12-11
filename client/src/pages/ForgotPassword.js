@@ -47,7 +47,7 @@ export default function ForgotPassword() {
               </Card.Body>
             </Card>
             <div className="w-100 text-center mt-2">
-              Dont have an account? <Link to="/signup">Sign Up</Link>
+              Remeber Your Password Now? <Link to="/login">Log In</Link>
             </div>
           </div>
         </Container>
