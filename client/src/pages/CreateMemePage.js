@@ -4,6 +4,7 @@ import "../styles/CreateMemePage.css";
 import Meme from "../components/Meme/";
 import {useAuth} from "../contexts/AuthContext";
 import API from "../utils/API";
+import {useHistory} from "react-router-dom";
 
 const objectToQueryParam = (obj) => {
     const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`)
@@ -18,7 +19,7 @@ export default function CreateMemePage() {
     const [topText, setTopText] = useState('');
     const [bottomText, setBottomText] = useState('');
     const [title, setTitle] = useState('');
-    
+    const history = useHistory();
 
     //to get the current user
     const {currentUser} = useAuth();
@@ -66,7 +67,7 @@ export default function CreateMemePage() {
             }
             console.log(memes);
            API.createMeme(memes)
-            .then(() => console.log("meme made"))
+            .then(history.push("/homepage"))
             .catch((err) => console.log(err))
         } 
     }

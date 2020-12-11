@@ -26,7 +26,7 @@ export default function LikedMemePage() {
     return (
         <Container fluid className="d-flex meme justify-content-center">
         <Row>
-            <Col lg={8} sm={12}>
+            <Col lg={12} sm={12}>
                 {memes.map((memeToShow) => {
                     return (
                         <>
