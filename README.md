@@ -28,15 +28,15 @@ An Application that allows you to create and post your own creative memes to you
 
 
 ### *technologies*
-<img src="client/src/images/screenshots/mern.png" alt="mern" width="500"/>
+<img src="client/src/images/mern.png" alt="mern" width="500"/>
 
 ## *Screenshots*
 <img src="client/src/images/homepage.JPG" alt="homepage-pic" width="500"/>
 <img src="client/src/images/createMemePage.JPG" alt="createMemePage-pic" width="500"/>
 <img src="client/src/images/SavedMemePage.JPG" alt="saved-meme-pic" width="500"/>
-<img src="client/src/images/Signup.JPG" alt="signup-pic" width="500"/>
-<img src="client/src/images/Login.JPG" alt="login-pic" width="500"/>
-<img src="client/src/images/Profile.JPG" alt="profile-pic" width="500"/>
+<img src="client/src/images/Signup.JPG" alt="signup" width="500"/>
+<img src="client/src/images/Login.JPG" alt="login" width="500"/>
+<img src="client/src/images/Profile.JPG" alt="profile" width="500"/>
 
 ## *License*
 
