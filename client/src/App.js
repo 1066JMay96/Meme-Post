@@ -2,6 +2,7 @@
 import React from "react";
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+// import { HashRouter as Router, Route } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
@@ -16,10 +17,9 @@ import LikedMemePage from "./pages/LikedMemePage";
 function App() {
   return (
       <div>
-        <Router>
+        <Router basename="/Meme-Post">
           <AuthProvider>
           <Navbar />
-              <Switch>
                 <Route path="/signup" component={Signup} />
                 <PrivateRoute exact path ="/profile" component={Profile} />
                 <Route path="/login" component={Login} />
@@ -28,7 +28,6 @@ function App() {
                 <Route path ="/homepage" component={HomePage} />
                 <Route path ="/create" component={CreateMemePage} />
                 <Route path="/liked" component={LikedMemePage} />
-              </Switch>
           </AuthProvider>
         </Router>
       </div>

@@ -43,9 +43,6 @@ mongoose.connect(
 // Creating express app and configuring middleware needed for authentication
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
 
 // Start the API server
 app.listen(PORT, function() {
