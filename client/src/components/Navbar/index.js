@@ -1,4 +1,6 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
+import Trollface from "../pictures/Trollface.png"
 import "../../styles/Navbar.css";
 
 export function NavBar() {
@@ -12,34 +14,33 @@ export function NavBar() {
         <div className="collapse navbar-collapse navbar-right" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                    <a className="nav-link" href="/homepage">Home </a>
+                    <NavLink className="nav-link" to="/">Home</NavLink>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/create">Create</a>
+                    <NavLink className="nav-link" to="/create">Create</NavLink>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/liked">Saved</a>
+                    <NavLink className="nav-link" to="/liked">Saved</NavLink>
                 </li>
-
             </ul>
             <ul className="navbar-nav justify-content-center mr-auto">
-                <a className="navbar-brand" href="/homepage">Meme-Post</a>
-                <img src="pictures/Trollface.png" alt="troll-face" className="d-inline-block" style={{width: "50px"}}></img>
+                <NavLink className="navbar-brand" to="/homepage">Meme-Post</NavLink>
+                <img src={Trollface} alt="troll-face" className="d-inline-block" style={{width: "50px"}}></img>
 
             </ul>
             <ul className="navbar-nav justify-content-end">
 
                 <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="/profile" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <NavLink className="nav-link dropdown-toggle" to="/profile" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Account
-                        </a>
+                        </NavLink>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a className="dropdown-item" href="/signup">Sign-Up</a>
-                            <a className="dropdown-item" href="/login">Login</a>
+                            <NavLink className="dropdown-item" to="/signup">Sign-Up</NavLink>
+                            <NavLink className="dropdown-item" to="/login">Login</NavLink>
                         </div>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/profile">Profile</a>
+                    <NavLink className="nav-link" to="/profile">Profile</NavLink>
                 </li>
             </ul>
         </div>
