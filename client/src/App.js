@@ -25,7 +25,9 @@ function App() {
                 <Route path="/login" component={Login} />
                 <Route path ="/forgot-password" component={ForgotPassword} />
                 <Route path="/update_profile" component={UpdateProfile} />
-                <Route path ="/homepage" component={HomePage} />
+                <Route exact path={["/", "/homepage"]}>
+                  <HomePage />
+                </Route>
                 <Route path ="/create" component={CreateMemePage} />
                 <Route path="/liked" component={LikedMemePage} />
           </AuthProvider>
