@@ -1,4 +1,4 @@
-# *Welcome To Meme-Post*
+# Welcome To Meme-Post
 
 An Application that allows you to create and post your own creative memes to your hearts content. If you find a meme that you cherish no problem you can just save it and if you feel like the meme is dead no problem just unsave it. Easy as that! 
 
@@ -35,8 +35,6 @@ An Application that allows you to create and post your own creative memes to you
 <img src="client/src/images/createMemePage.JPG" alt="createMemePage-pic" width="500"/>
 <img src="client/src/images/SavedMemePage.JPG" alt="saved-meme-pic" width="500"/>
 <img src="client/src/images/Signup.JPG" alt="signup" width="500"/>
-<img src="client/src/images/Login.JPG" alt="login" width="500"/>
-<img src="client/src/images/Profile.JPG" alt="profile" width="500"/>
 
 ## License
 
