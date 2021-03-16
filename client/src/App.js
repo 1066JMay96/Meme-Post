@@ -28,7 +28,7 @@ function App() {
                 <Route exact path={["/", "/homepage"]}>
                   <HomePage />
                 </Route>
-                <Route path ="/create" component={CreateMemePage} />
+                <PrivateRoute path ="/create" component={CreateMemePage} />
                 <Route path="/liked" component={LikedMemePage} />
           </AuthProvider>
         </Router>

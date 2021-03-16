@@ -32,7 +32,7 @@ export default {
         return axios.delete(`/api/likedMeme/${memeId}`);
     },
     //get Liked Memes from api
-    getLikedMeme: function() {
-        return axios.get("/api/likedMeme");
+    getLikedMeme: function(currentUser) {
+        return axios.get("/api/likedMeme", currentUser);
     }
 };

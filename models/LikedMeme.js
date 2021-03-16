@@ -14,6 +14,10 @@ const likedMemeSchema = new Schema({
     user: {
         type:String,
         required: true
+    },
+    currentUser: {
+        type:String,
+        required: false
     }
 });
 

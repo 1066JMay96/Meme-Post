@@ -4,11 +4,13 @@ import API from "../utils/API";
 import "../styles/Homepage.css";
 import LikeButton from "../components/LikeButton";
 import DislikeButton from "../components/DislikeButton";
+import {useAuth} from "../contexts/AuthContext";
 
 
 export default function HomePage() {
 
     const [memes, setMemes] = useState([]); //will store memes retrieved from database
+    const {currentUser} = useAuth();
 
     useEffect(() => {
         getMemesToPost();
@@ -19,7 +21,7 @@ export default function HomePage() {
         .then(({data}) => setMemes(data))
         .catch((err) => console.log(err));
     }
-    console.log(memes)
+    //console.log(memes)
 
     const handleMemeSave = (memeId) => {
 
@@ -28,8 +30,17 @@ export default function HomePage() {
         // find the book in memes state by the mathcing id
         const memeToSave = memes.find(data => data._id === memeId);
 
+        // get the current user who is saving the meme
+        //I am trying to save not only the meme but also 
+        //the current user who is saving the meme 
+        //to filter them in LikedMeme page by the person who saved them
+        const userWhoSavedMeme = {
+            user: currentUser.email.split("@")[0]
+        }
+
+
         //it returns undefined
-        console.log(memeToSave);
+        //console.log(memeToSave);
         API.likeMeme(memeToSave)
         .then(() => console.log("meme saved!!"))
         .catch((err) => console.log(err));

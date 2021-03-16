@@ -76,15 +76,14 @@ app.post("/api/createdMeme", (req, res) => {
   });
 });
 
-//Get memes from Database to likedpage
+//Get memes from Database to likedpage depending on what memes the current user saved
 app.get("/api/likedMeme", (req, res) => {
   console.log("route hit!!");
-  LikedMeme.find({} , (error, data) => {
-    console.log(data)
+  LikedMeme.find({currentUser: req.body.currentUser}).then((error, memes) => {
     if(error) {
       res.send(error)
     } else {
-      res.json(data)
+      res.json(memes);
     }
   });
 });

@@ -46,18 +46,14 @@ export default function CreateMemePage() {
         //will take all the parameters needed to make the meme and send it to their api
         const response = await fetch(`https://api.imgflip.com/caption_image${objectToQueryParam(params)}`);
 
-
-        console.log(title);
-
         //url of finished meme from API
         const data = await response.json()
         console.log(data.data.url);
 
         //get the current user
         const userEmail = {
-            user: currentUser.email
+            user: currentUser.email.split("@")[0]
         }
-        console.log(userEmail);
 
         if(title && data && userEmail) {
             let memes = {

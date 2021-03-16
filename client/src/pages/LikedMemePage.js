@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from "react"
 import {Card, Button, Container, Row, Col, Image} from "react-bootstrap";
 import API from "../utils/API";
+import {useAuth} from "../contexts/AuthContext";
 
 export default function LikedMemePage() {
     const [memes, setMemes] = useState([]); //use state to hold memes saved in the LikedMeme database
+    const {currentUser} = useAuth();
 
     useEffect(() => {
         getMemesToPost();
