@@ -21,29 +21,24 @@ export default function HomePage() {
         .then(({data}) => setMemes(data))
         .catch((err) => console.log(err));
     }
-    //console.log(memes)
 
+     //I am trying to save not only the user but also 
+    //push the meme that the user is saving into the memesLiked array in mongodb
+    //and to filter the saved meme page by the vurrent logged in users memes saved
     const handleMemeSave = (memeId) => {
 
-        console.log(memeId)
-
-        // find the book in memes state by the mathcing id
+        // find the meme that user is trying to save
         const memeToSave = memes.find(data => data._id === memeId);
 
         // get the current user who is saving the meme
-        //I am trying to save not only the meme but also 
-        //the current user who is saving the meme 
-        //to filter them in LikedMeme page by the person who saved them
         const userWhoSavedMeme = {
             user: currentUser.email.split("@")[0]
         }
 
-
-        //it returns undefined
         //console.log(memeToSave);
-        API.likeMeme(memeToSave)
-        .then(() => console.log("meme saved!!"))
-        .catch((err) => console.log(err));
+        // API.likeMeme(memeToSave)
+        // .then(() => console.log("meme saved!!"))
+        // .catch((err) => console.log(err));
     }
 
     return (

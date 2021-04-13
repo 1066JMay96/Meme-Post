@@ -77,39 +77,33 @@ app.post("/api/createdMeme", (req, res) => {
 });
 
 //Get memes from Database to likedpage depending on what memes the current user saved
-app.get("/api/likedMeme", (req, res) => {
-  console.log("route hit!!");
-  LikedMeme.find({currentUser: req.body.currentUser}).then((error, memes) => {
-    if(error) {
-      res.send(error)
-    } else {
-      res.json(memes);
-    }
-  });
-});
+// app.get("/api/likedMeme", (req, res) => {
+//   console.log("route hit!!");
+//   LikedMeme.find({currentUser: req.body.currentUser}).then((error, memes) => {
+//     if(error) {
+//       res.send(error)
+//     } else {
+//       res.json(memes);
+//     }
+//   });
+// });
 
 //post memes into LikedMeme Database
 app.post("/api/likedMeme", (req, res) => {
-  console.log("You just saved a meme!!!");
-  LikedMeme.create(req.body).then((error, data) => {
-    console.log("save meme SUCCESS!!!!" + data);
-    if(error) {
-      res.send(error)
-    } else {
-      console.log(data)
-      res.json(data);
-    }
-  });
+  LikedMeme.findOneAndUpdate(
+    {_id: req.body._id},
+    {userGuest: req.body.userGuest},
+     {$push: {}})
 });
 
 //delete liked meme from LikedMeme database
-app.delete("/api/likedMeme/:id", (req, res) => {
-  LikedMeme.deleteOne({_id: req.params.id}, (err, data) => {
-    if(err) {
-      res.send(err);
-    } else {
-      console.log(data)
-      res.json(data);
-    }
-  });
-});
+// app.delete("/api/likedMeme/:id", (req, res) => {
+//   LikedMeme.deleteOne({_id: req.params.id}, (err, data) => {
+//     if(err) {
+//       res.send(err);
+//     } else {
+//       console.log(data)
+//       res.json(data);
+//     }
+//   });
+// });
