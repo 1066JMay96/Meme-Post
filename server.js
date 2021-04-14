@@ -10,7 +10,7 @@ const LikedMeme = require("./models/LikedMeme.js");
 const app = express();
 
 // Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8008;
 
 app.use(compression({ filter: shouldCompress }))
  
@@ -51,7 +51,7 @@ app.listen(PORT, function() {
 
 //Get memes from Database to homepage
 app.get("/api/createdMeme", (req, res) => {
-  console.log("route hit!!");
+  //console.log("route hit!!");
   CreatedMeme.find({} , (error, data) => {
     console.log(data)
     if(error) {
@@ -64,7 +64,7 @@ app.get("/api/createdMeme", (req, res) => {
 
 //post memes into Database
 app.post("/api/createdMeme", (req, res) => {
-  console.log("You just saved a meme!!!");
+  console.log("You just made a meme!!!");
   CreatedMeme.create(req.body).then((error, data) => {
     console.log("save meme SUCCESS!!!!" + data);
     if(error) {
@@ -77,33 +77,35 @@ app.post("/api/createdMeme", (req, res) => {
 });
 
 //Get memes from Database to likedpage depending on what memes the current user saved
-// app.get("/api/likedMeme", (req, res) => {
-//   console.log("route hit!!");
-//   LikedMeme.find({currentUser: req.body.currentUser}).then((error, memes) => {
-//     if(error) {
-//       res.send(error)
-//     } else {
-//       res.json(memes);
-//     }
-//   });
-// });
+app.get("/api/likedMeme", (req, res) => {
+  LikedMeme.find().then((error, memes) => {
+    if(error) {
+      res.send(error)
+    } else {
+      res.json(memes);
+    }
+  });
+});
 
 //post memes into LikedMeme Database
 app.post("/api/likedMeme", (req, res) => {
-  LikedMeme.findOneAndUpdate(
-    {_id: req.body._id},
-    {userGuest: req.body.userGuest},
-     {$push: {}})
+  console.log("post route hit");
+  LikedMeme.create(req.body).then((error, data) => {
+    if(error) {
+      res.send(error)
+    } else {
+      res.json(data);
+    }
+  });
 });
 
 //delete liked meme from LikedMeme database
-// app.delete("/api/likedMeme/:id", (req, res) => {
-//   LikedMeme.deleteOne({_id: req.params.id}, (err, data) => {
-//     if(err) {
-//       res.send(err);
-//     } else {
-//       console.log(data)
-//       res.json(data);
-//     }
-//   });
-// });
+app.delete("/api/likedMeme/:id", (req, res) => {
+  LikedMeme.deleteOne({_id: req.params.id}, (err, data) => {
+    if(err) {
+      res.send(err);
+    } else {
+      res.json(data);
+    }
+  });
+});

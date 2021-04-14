@@ -27,18 +27,25 @@ export default function HomePage() {
     //and to filter the saved meme page by the vurrent logged in users memes saved
     const handleMemeSave = (memeId) => {
 
-        // find the meme that user is trying to save
-        const memeToSave = memes.find(data => data._id === memeId);
+        // find the meme that user is trying to save along with all its data
+        const currentMeme = memes.find(data => data._id === memeId);
 
         // get the current user who is saving the meme
-        const userWhoSavedMeme = {
-            user: currentUser.email.split("@")[0]
-        }
+        // const userWhoSavedMeme = {
+        //     user: currentUser.email.split("@")[0]
+        // }
 
-        //console.log(memeToSave);
-        // API.likeMeme(memeToSave)
-        // .then(() => console.log("meme saved!!"))
-        // .catch((err) => console.log(err));
+        let memeToSave = {
+            currentLoggedUser: currentUser.email.split("@")[0],
+            title: currentMeme.title,
+            meme: currentMeme.meme,
+            user: currentMeme.user
+        };
+
+        console.log(memeToSave);
+        API.likeMeme(memeToSave)
+        .then((res) => res.json(memeToSave))
+        .catch((err) => console.log(err));
     }
 
     return (

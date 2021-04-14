@@ -5,7 +5,7 @@ import {useAuth} from "../contexts/AuthContext";
 
 export default function LikedMemePage() {
     const [memes, setMemes] = useState([]); //use state to hold memes saved in the LikedMeme database
-    const {currentUser} = useAuth();
+    //const {currentUser} = useAuth();
 
     useEffect(() => {
         getMemesToPost();

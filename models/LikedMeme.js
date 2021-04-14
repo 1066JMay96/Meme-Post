@@ -3,28 +3,18 @@ const CreatedMeme = require("./CreatedMeme");
 const Schema = mongoose.Schema;
 
 const likedMemeSchema = new Schema({
-    userGuest: {
-        type: String,
-        required: true,
-        unique: true
+    currentLoggedUser: {
+        type: String
+    },    
+    title: {
+        type: String
     },
-    memesLiked: [
-        {
-            title: {
-                type: String,
-                required: false,
-                min: [1]
-            },
-            meme: {
-                type: String,
-                required: false
-            },
-            user: {
-                type:String,
-                required: false
-            }
-        }
-    ]
+    meme: {
+        type: String
+    },
+    user: {
+        type: String
+    }   
 });
 
 const LikedMeme = mongoose.model("LikedMeme", likedMemeSchema);
