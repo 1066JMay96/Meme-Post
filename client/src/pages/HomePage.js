@@ -30,11 +30,6 @@ export default function HomePage() {
         // find the meme that user is trying to save along with all its data
         const currentMeme = memes.find(data => data._id === memeId);
 
-        // get the current user who is saving the meme
-        // const userWhoSavedMeme = {
-        //     user: currentUser.email.split("@")[0]
-        // }
-
         let memeToSave = {
             currentLoggedUser: currentUser.email.split("@")[0],
             title: currentMeme.title,
@@ -42,9 +37,8 @@ export default function HomePage() {
             user: currentMeme.user
         };
 
-        console.log(memeToSave);
         API.likeMeme(memeToSave)
-        .then((res) => res.json(memeToSave))
+        .then(() => console.log(memeToSave))
         .catch((err) => console.log(err));
     }
 

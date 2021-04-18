@@ -24,7 +24,11 @@ export default {
     },
     // post liked meme
     likeMeme: function(memeData) {
-        return axios.post("/api/likedMeme", memeData);
+        return axios({
+            method: "post",
+            url: "/api/likedMeme",
+            data: memeData
+        })
     },
     //unlike a meme
     unlikeMeme: function(memeId) {
