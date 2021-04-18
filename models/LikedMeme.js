@@ -6,20 +6,25 @@ const likedMemeSchema = new Schema({
     currentLoggedUser: {
         type: String,
         required: true 
-    },   
-    title: {
-        type: String,
-        required: false,
-        min: [1]
     },
-    meme: {
-        type: String,
-        required: false
-    },
-    user: {
-        type: String,
-        required: false
-    }        
+    memesSaved: [
+        {
+            title: {
+                type: String,
+                required: true,
+                min: [1]
+            },
+            meme: {
+                type: String,
+                required: true
+            },
+            user: {
+                type:String,
+                required: true
+            }
+        },
+    ],
+    default: []   
 });
 
 const LikedMeme = mongoose.model("LikedMeme", likedMemeSchema);
