@@ -4,7 +4,7 @@ import API from "../utils/API";
 import {useAuth} from "../contexts/AuthContext";
 
 export default function LikedMemePage() {
-    const [memes, setMemes] = useState([]); //use state to hold memes saved in the LikedMeme database
+    const [memes, setMemes] = useState([]); //use state to hold memes saved in the SavedMeme database
     //const {currentUser} = useAuth();
 
     useEffect(() => {
@@ -12,7 +12,7 @@ export default function LikedMemePage() {
     }, []);
 
     const getMemesToPost = () => {
-        API.getLikedMeme()
+        API.getSavedMemes()
         .then(({data}) => setMemes(data))
         .catch((err) => console.log(err));
     }
@@ -20,7 +20,7 @@ export default function LikedMemePage() {
     const handleDeleteMeme = (memeId) => {
         console.log(memeId);
 
-        API.unlikeMeme(memeId)
+        API.unsaveMeme(memeId)
         .then(() => getMemesToPost())
         .catch((err) => console.log(err));
     }

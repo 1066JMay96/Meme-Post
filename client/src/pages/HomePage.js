@@ -37,7 +37,7 @@ export default function HomePage() {
             user: currentMeme.user
         };
 
-        API.likeMeme(memeToSave)
+        API.saveMeme(memeToSave)
         .then(() => console.log(memeToSave))
         .catch((err) => console.log(err));
     }

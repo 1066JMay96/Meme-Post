@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const CreatedMeme = require("./CreatedMeme");
 const Schema = mongoose.Schema;
 
-const likedMemeSchema = new Schema({
+const SavedMemeSchema = new Schema({
     currentLoggedUser: {
         type: String,
         required: true 
@@ -27,6 +27,6 @@ const likedMemeSchema = new Schema({
     default: []   
 });
 
-const LikedMeme = mongoose.model("LikedMeme", likedMemeSchema);
+const SavedMeme = mongoose.model("SavedMeme", SavedMemeSchema);
 
-module.exports = LikedMeme;
+module.exports = SavedMeme;

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const CreatedMeme = require("../models/CreatedMeme.js")
-const LikedMeme = require("../models/LikedMeme.js");
+const SavedMeme = require("../models/SavedMeme.js");
 
 mongoose.connect( process.env.MONGODB_URI || 'mongodb+srv://MuhammedEkinci:*Tbn58kpm@cluster0.e9fkz.mongodb.net/memepost_db?retryWrites=true&w=majority', {
     useNewUrlParser: true
@@ -48,8 +48,8 @@ likedMemes = [
 //     });
 
 // Seed Cart from models/cart.js
-LikedMeme.collection
-  .createIndexes(likedMemes)
+SavedMeme.collection
+  .createIndexes(SavedMeme)
   .then((MemePost) => {
     console.log(MemePost);
   })

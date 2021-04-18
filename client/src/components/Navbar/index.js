@@ -20,7 +20,7 @@ export function NavBar() {
                     <NavLink className="nav-link" to="/create">Create</NavLink>
                 </li>
                 <li className="nav-item">
-                    <NavLink className="nav-link" to="/liked">Saved</NavLink>
+                    <NavLink className="nav-link" to="/saved">Saved</NavLink>
                 </li>
             </ul>
             <ul className="navbar-nav justify-content-center mr-auto">

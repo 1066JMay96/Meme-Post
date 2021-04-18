@@ -5,7 +5,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const {resolve} = require("path");
 const CreatedMeme = require("./models/CreatedMeme.js");
-const LikedMeme = require("./models/LikedMeme.js");
+const SavedMeme = require("./models/SavedMeme.js");
 
 const app = express();
 
@@ -77,8 +77,8 @@ app.post("/api/createdMeme", (req, res) => {
 });
 
 //Get memes from Database to likedpage depending on what memes the current user saved
-app.get("/api/likedMeme", (req, res) => {
-  LikedMeme.find({}).then((error, memes) => {
+app.get("/api/savedMeme", (req, res) => {
+  SavedMeme.find({}).then((error, memes) => {
     if(error) {
       res.send(error)
     } else {
@@ -90,7 +90,7 @@ app.get("/api/likedMeme", (req, res) => {
 //post memes into LikedMeme Database
 // app.post("/api/likedMeme", (req, res) => {
 //   console.log("post route hit");
-//   LikedMeme.create(req.body).then((error, data) => {
+//   SavedMeme.create(req.body).then((error, data) => {
 //     if(error) {
 //       res.send(error)
 //     } else {
@@ -100,15 +100,13 @@ app.get("/api/likedMeme", (req, res) => {
 // });
 
 //Get all saved memes that the current logged in user saved
-app.post("/api/likedMeme", (req, res) => {
-  LikedMeme.findOneAndUpdate({currentLoggedUser: req.body.currentLoggedUser}, {$push:{memesSaved: req.body}}).then(user => {
-    if(user){
-      console.log("User Found!");
-      return res.send("User found!" + user);
-    }
+app.post("/api/savedMeme", (req, res) => {
+  SavedMeme.findOneAndUpdate({currentLoggedUser: req.body.currentLoggedUser}, {$push:{memesSaved: req.body}}).then(user => {
+    
     //if there is no user with that name in database then create a new user
-    else {
-      const newUser = new LikedMeme({
+    if(!user){
+      console.log("User Not Found!");
+      const newUser = new SavedMeme({
         currentLoggedUser: req.body.currentLoggedUser,
         memesSaved: [
           {
@@ -119,15 +117,24 @@ app.post("/api/likedMeme", (req, res) => {
         ]
       });
       newUser.save()
-      .then(x => console.log("User Saved" + x))
+      .then(x =>res.json(x))
       .catch(err => console.log(err));
+    }
+    //if there is already a person with this logged in name 
+    //then just update the memesSaved array and push the new meme   
+    else {
+      console.log("User Found!!");
+      // SavedMeme.memesSaved.push(user);
+      // SavedMeme.save()
+      // .then((meme) => res.json(meme))
+      // .catch(err => console.log(err));
     }
   })
 })
 
 //delete liked meme from LikedMeme database
-app.delete("/api/likedMeme/:id", (req, res) => {
-  LikedMeme.deleteOne({_id: req.params.id}, (err, data) => {
+app.delete("/api/savedMeme/:id", (req, res) => {
+  SavedMeme.deleteOne({_id: req.params.id}, (err, data) => {
     if(err) {
       res.send(err);
     } else {

@@ -12,24 +12,24 @@ import { AuthProvider } from "./contexts/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
 import HomePage from "./pages/HomePage";
 import CreateMemePage from "./pages/CreateMemePage";
-import LikedMemePage from "./pages/LikedMemePage";
+import SavedMemePage from "./pages/SavedMemePage";
 
 function App() {
   return (
       <div>
         <Router basename="/Meme-Post">
           <AuthProvider>
-          <Navbar />
-                <Route path="/signup" component={Signup} />
-                <PrivateRoute exact path ="/profile" component={Profile} />
-                <Route path="/login" component={Login} />
-                <Route path ="/forgot-password" component={ForgotPassword} />
-                <Route path="/update_profile" component={UpdateProfile} />
-                <Route exact path={["/", "/homepage"]}>
-                  <HomePage />
-                </Route>
-                <PrivateRoute path ="/create" component={CreateMemePage} />
-                <Route path="/liked" component={LikedMemePage} />
+            <Navbar />
+            <Route path="/signup" component={Signup} />
+            <PrivateRoute exact path ="/profile" component={Profile} />
+            <Route path="/login" component={Login} />
+            <Route path ="/forgot-password" component={ForgotPassword} />
+            <Route path="/update_profile" component={UpdateProfile} />
+            <Route exact path={["/", "/homepage"]}>
+              <HomePage />
+            </Route>
+            <PrivateRoute path ="/create" component={CreateMemePage} />
+            <Route path="/saved" component={SavedMemePage} />
           </AuthProvider>
         </Router>
       </div>

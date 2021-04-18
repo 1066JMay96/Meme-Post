@@ -23,20 +23,20 @@ export default {
         })
     },
     // post liked meme
-    likeMeme: function(memeData) {
+    saveMeme: function(memeData) {
         return axios({
             method: "post",
-            url: "/api/likedMeme",
+            url: "/api/savedMeme",
             data: memeData
         })
     },
     //unlike a meme
-    unlikeMeme: function(memeId) {
+    unsaveMeme: function(memeId) {
         console.log(memeId)
-        return axios.delete(`/api/likedMeme/${memeId}`);
+        return axios.delete(`/api/savedMeme/${memeId}`);
     },
     //get Liked Memes from api
-    getLikedMeme: function(currentUser) {
-        return axios.get("/api/likedMeme", currentUser);
+    getSavedMemes: function(currentUser) {
+        return axios.get("/api/savedMeme", currentUser);
     }
 };
